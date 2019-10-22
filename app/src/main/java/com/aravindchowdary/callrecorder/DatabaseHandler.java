@@ -12,7 +12,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     private static final int DATABASE_VERSION = 2;
     public static final String DATABASE_NAME = "callRecords";
-    public static final String TABLE_RECORD = "callRecord";
+    public static final String TABLE_RECORD  = "callRecord";
     public static final String SERIAL_NUMBER= "serialNumber";
     public static final String PHONE_NUMBER ="phoneNumber";
     public static final String TIME = "time";
@@ -29,7 +29,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
         String CREATE_LOG_TABLE="CREATE TABLE " + TABLE_RECORD + "("
                 + SERIAL_NUMBER + " INTEGER PRIMARY KEY,"+ PHONE_NUMBER + " TEXT," + TIME + " TEXT,"
-                + DATE + " TEXT" + ")";
+                + DATE + " TEXT";
 
         db.execSQL(CREATE_LOG_TABLE);
     }
@@ -37,7 +37,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
 
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_RECORD);
+        db.execSQL("DROP TABLE IF EXIST " + TABLE_RECORD);
         onCreate(db);
     }
 }
